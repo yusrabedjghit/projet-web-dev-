@@ -1,0 +1,269 @@
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+
+
+
+
+header {
+  background: rgb(0, 0, 0);
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  border-bottom: 2px solid #FCA616;
+  font-family: 'Arial', sans-serif;
+}
+
+
+
+header a {
+  position: relative;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 0 15px;
+  color: #FCA616;
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+
+.grid-container {
+  display: grid;
+  padding: 40px;
+  gap: 15px;
+}
+
+
+
+
+/* Univers */
+.univers-card {
+  background: #FCA616;
+  border-radius: 1rem;
+  padding: 12px;
+}
+
+.univers-card h2 {
+  text-align: center;
+}
+
+/* Saga */
+.saga-card {
+  background: #939597;
+  border-radius: 0.8px;
+  margin-top: 1px;
+  padding: 0.5px;
+}
+
+.saga-card h3 {
+  margin: 0.5rem 0;
+  color: #179e9c;
+}
+
+
+
+.film-card {
+  background: #FCA616;
+  border-start-start-radius: 20px;
+  border-end-end-radius: 20px;
+  padding: 8px;
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom:10px;
+}
+
+.film-card h4 {
+  margin: 0.3em 0;
+  font-size: 1em;
+}
+
+.film-card p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #000000;
+}
+
+
+
+header {
+  background: rgb(0, 0, 0);
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  border-bottom: 2px solid #FCA616;
+  font-family: 'Arial', sans-serif;
+}
+
+
+
+header a {
+  position: relative;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 0 15px;
+  color: #FCA616;
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+
+footer a {
+  position: relative;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 0 15px;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+
+footer a:hover {
+  background-color: #939597;
+  border-radius: 5px;
+}
+
+
+header a:hover{
+    color: rgb(255, 255, 255);
+}
+
+a.univers {
+  position: relative;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 0 15px;
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+label {
+  position: relative;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 0 15px;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+
+img {
+  width: 100%;
+  height: auto;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+h2 {
+  background-color: #939597;
+  font-size: 22px;
+  margin: 0;
+  padding: 10px;
+  border-radius: 5px px 0 0;
+  text-align: center;
+}
+
+
+#template-film {
+  border-radius: px;
+}
+
+h3 {
+  background-color:#14203E;
+  font-size: 22px;
+  padding: 10px;
+  text-align: center;
+}
+
+
+p {
+  padding: 8px;
+  border-start-start-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #EAEAEA;
+}
+
+
+article {
+  background: #FCA616;
+  border-radius: 1rem;
+  padding: 12px;}
+
+ul {
+  list-style: none;
+  background: #14203E;
+  border-radius: 8px;
+  padding: 8px;
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom:10px;
+}
+
+
+
+
+ul.filtre {
+    background: #939597;
+  border-radius: 0.8px;
+  margin-top: 1px;
+  padding: 0.5px;
+  display: flex;
+  list-style: none;
+}
+
+
+.film-card {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #222;
+  border-radius: 10px;
+  color: white;
+}
+
+.film-content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.film-image {
+  width: 250px;       /* taille fixe ou ajustable */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.film-text {
+  flex: 1;             /* prend le reste de la largeur */
+}
+
+.film-text h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.film-text .infos {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.film-text .synopsis {
+  line-height: 1.5;
+}
+

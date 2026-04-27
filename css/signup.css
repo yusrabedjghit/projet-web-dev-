@@ -1,0 +1,145 @@
+/* ====== Layout général ====== */
+.auth{
+  position: relative;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+
+  /* Décommente pour aligner la carte à gauche (comme sur login si besoin)
+  justify-items: start;
+  padding-left: clamp(16px, 6vw, 140px);
+  */
+}
+
+/* ====== Fond (chemin ABSOLU depuis htdocs) ====== */
+.auth .bg{
+  position: absolute;
+  inset: 0;
+  background:
+    /* léger assombrissement pour la lisibilité */
+    linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.45)),
+    url("/projet2/photo/9e3dd6ed-df40-43dc-aeb7-d8f568f5b000.jpeg") center/cover no-repeat;
+  z-index: 0;
+  filter: saturate(1.05);
+  transform: scale(1.04);
+  animation: bgPan 18s ease-in-out infinite alternate;
+}
+
+@keyframes bgPan{
+  0%   { background-position: 50% 40%; transform: scale(1.04); }
+  100% { background-position: 55% 45%; transform: scale(1.08); }
+}
+
+/* ====== Canvas étoiles entre le fond et la carte ====== */
+/* Étoiles en plein écran, au-dessus du fond, sous la carte */
+#stars{
+  position: fixed;   /* plein écran, même si tu scrolles */
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .95;      /* augmente si tu veux plus visible */
+}
+/* Assure la carte au-dessus des étoiles */
+.card{ position: relative; z-index: 2; }
+
+/* Allumage au survol / focus */
+.card:hover,
+.card:focus-within{
+  transform: translateY(0);
+  box-shadow: 0 30px 80px rgba(0,0,0,.50), 0 0 0 1px rgba(255,255,255,.06) inset;
+}
+
+/* Halo doux autour de la carte */
+.card::after{
+  content:"";
+  position:absolute; inset:-14px;
+  border-radius: 26px;
+  opacity: 0;
+  transition: opacity .25s ease;
+  box-shadow: 0 0 100px 30px rgba(245, 234, 142, 0.18); /* lueur dorée */
+  z-index:-1;
+}
+.card:hover::after,
+.card:focus-within::after{ opacity: 1; }
+
+/* Entrée */
+@keyframes fadeUp{
+  from{ opacity: 0; transform: translateY(20px); }
+  to  { opacity: 1; transform: translateY(8px); }
+}
+
+/* ====== Champs & bouton adaptés au verre ====== */
+input{
+  background: rgba(14, 22, 39, 0.45);
+  border: 1px solid rgba(246, 231, 134, 0.8);   /* doré */
+  transition: border-color .15s ease, box-shadow .2s ease, background .2s ease, transform .1s ease;
+}
+input:focus{
+  background: rgba(12, 19, 34, 0.55);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(91,140,255,.18), 0 8px 22px rgba(0,0,0,.35);
+  transform: translateY(-1px);
+}
+
+button{
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  transition: transform .12s ease, box-shadow .2s ease, background .2s ease, filter .2s ease;
+}
+button:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0,0,0,.32);
+  filter: brightness(1.04);
+}
+button:active{
+  transform: translateY(0);
+  box-shadow: none;
+  filter: brightness(.98);
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 880px){
+  .auth{
+    justify-items: center;
+    padding-left: 0;
+  }
+  .card{ margin: 16px; }
+}
+/* ——— Verre dépoli (transparent + flou) ——— */
+.card{
+  position: relative;
+  z-index: 2;                       /* au-dessus des étoiles */
+  background: rgba(15, 22, 38, 0.55);     /* transparence (~55%) */
+  backdrop-filter: blur(10px) saturate(1.05);
+  -webkit-backdrop-filter: blur(10px) saturate(1.05);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 30px 60px rgba(0,0,0,.35);
+}
+
+/* Si tu veux un peu plus de transparence, descends à 0.45 */
+.premium-title{
+  font-weight: 700;
+  letter-spacing: .2px;
+  /* léger dégradé discret sur le titre */
+  background: linear-gradient(180deg, #eef3ff 0%, #c9d6ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.premium-sub{
+  margin: 4px 0 18px;
+  color: rgba(230,236,255,.82);
+  font-size: .98rem;
+}
+
+/* boutons un peu plus “précieux” au hover */
+button{
+  border: 1px solid rgba(255,255,255,.08);
+}
+button:hover{
+  box-shadow: 0 14px 28px rgba(0,0,0,.32), 0 0 0 1px rgba(255,255,255,.06) inset;
+  filter: brightness(1.05);
+}

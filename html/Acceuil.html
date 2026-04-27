@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DisneyFilms</title>
+  <link rel="stylesheet" href="../css/Acceuil.css">
+  <script src="../js/Acceuil.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="login.html">Déconnexion</a>
+    </nav>
+  </header>
+
+
+
+  <main>
+
+<h1>Retrouvez vos Univers Disney favoris:</h1>
+
+<nav>
+<a class="Refunivers" href="#StarWars">StarWars</a>
+<a class="Refunivers" href="#Marvel">Marvel</a>
+<a class="Refunivers" href="#Princesses">Princesses</a>
+</nav>
+
+<article>
+    <h1>Filtrez vos recherches!</h1>
+    <nav>
+        <ul class="filtre">
+
+        <li class="deroulant"><a href="#">Genre &ensp;</a>
+          <ul class="sous">
+            <li>
+                <label for="choix1" href="#" id="filtre" class="genre" value=action>
+                <input type="checkbox" id="choix1" name="choix1" value=action checked>
+                Action
+               </label>
+            </li>
+
+            <li>
+                <label for="choix2" href="#" id="filtre" class="genre" value="Animation">
+                <input type="checkbox" id="choix2" name="choix2" value="animation" class="select" checked>
+                animation
+               </label>
+            </li>
+
+            <li>
+                <label for="choix3" href="#" id="filtre" class="genre" value=romance>
+                <input type="checkbox" id="choix3" name="choix3" value=romance class="select" checked>
+                Romance
+               </label>
+            </li>
+
+            <li>
+                <label for="choix4" href="#" id="filtre" class="genre" value="science-fiction">
+                <input type="checkbox" id="choix4" name="choix4" value="science-fiction" class="select" checked>
+                Science-Fiction
+               </label>
+            </li>
+          </ul>
+        </li> 
+
+
+        <li class="deroulant"><a href="#">Recherche/Réinitialisation &ensp;</a>
+            <ul class="sous">
+                <li>
+                    <a href="#" id="filtre" onclick="filtre()">Rechercher</a>
+                </li>
+            <li>
+                <a href="#" id="filtre" onclick="Reinitialisation()">Réinitialiser</a>
+            </li>
+                
+            </ul>
+        </li>
+      </ul>
+    </article>
+
+
+
+
+
+
+    <div id="grid-univers" class="grid-container"></div>
+
+<template id="template-univers" >
+  <section class="univers-card " genre={{genre}} id={{univers}}>
+    <h2>{{univers}}</h2>
+    <div class="grid-sagas"></div>
+  </section>
+</template>
+
+<template id="template-saga">
+  <div class="saga-card">
+    <h3>{{saga}}</h3>
+    <div class="grid-films"></div>
+  </div>
+</template>
+
+<template id="template-film">
+  
+  <div class="film-card">
+    <a href="Films.html?film={{film}}&email=${encodeURIComponent(email)}" id="rien">
+    <h4>{{film}}</h4>
+    <p>{{date}}</p>
+    <img src={{image}} loading="lazy">
+  </a>
+  </div>
+
+</template>
+
+
+  </main>
+</body>
+</html>

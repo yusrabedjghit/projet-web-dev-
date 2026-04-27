@@ -1,0 +1,71 @@
+:root{
+  --bg: #0b1220;
+  --card: #8b7cee;
+  --text: #e6ecff;
+  --muted: #9fb0d0;
+  --accent: #5b8cff;
+  --accent-600: #200880;
+  --error: #ff5b6b;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Carte + typographie + champs */
+h1{ margin: 0 0 18px; font-size: 1.6rem; }
+
+label{ display:block; margin-bottom: 12px; font-size:.95rem; }
+input{
+  display:block; width:100%;
+  margin-top:6px; padding:12px 14px;
+  border-radius: 12px; border:1px solid #233055;
+  background: #110438; color: var(--text);
+  outline: none;
+}
+input:focus{ border-color: var(--accent); box-shadow: 0 0 0 3px rgba(91,140,255,.2); }
+
+button{
+  width:100%; padding:12px 14px; margin-top:8px;
+  border:0; border-radius: 12px; cursor:pointer;
+  background: var(--accent); color:#fff; font-weight:600;
+}
+button:hover{ background: var(--accent-600); }
+
+.muted{ color: var(--muted); font-size:.9rem; text-align:center; }
+.muted a{ color: var(--text); text-decoration: underline; }
+
+.msg{ margin-top:10px; font-size:.95rem; text-align:center; }
+.msg.error{ color: var(--error); }
+.msg.ok{ color: #6dff9a; }
+
+/* Conteneur et carte (communs) */
+.auth{
+  position: relative;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.card{
+  position: relative;
+  
+  z-index: 1;
+  max-width: 520px;
+  width: min(92vw, 520px);
+  margin: 24px;
+  background: var(--card);
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(247, 222, 62, 0.45);
+}
+
+/* Mobile */
+@media (max-width: 880px){
+  .card{ margin: 16px; }
+}

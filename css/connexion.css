@@ -1,0 +1,53 @@
+form input {
+                border-color:#ff0000;
+                border-width: 2px;   
+            }
+            #validButton {
+                background-color: blue;
+                border: 5px solid #04AA6D;
+                 color: black;
+                 font-size: 16px;
+                 padding: 16px 30px;
+                 border: none;
+                 cursor: pointer;
+                 border-radius: 5px;
+                 text-align: center;
+                
+            }
+
+
+#validButton:hover {
+
+                 background-color: blueviolet; 
+                 color: black; 
+                 
+                
+                
+                
+                
+                
+                }
+
+
+.center {
+    border-radius: 15px;
+    box-shadow: 0 0 8px #00000044;
+    padding: 25px;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.centerBG1 {
+    background-color: rgb(43, 180, 226);
+}
+
+.centerBG2 {
+    background-color: #ff0000;
+}

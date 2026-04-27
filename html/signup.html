@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Créer un compte</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/signup.css">
+  
+</head>
+<body>
+  <main class="auth">
+    <!-- Fond -->
+    <div class="bg"></div>
+
+    <!-- Étoiles animées (entre le fond et la carte) -->
+    <canvas id="stars" aria-hidden="true"></canvas>
+
+    <!-- Carte -->
+    <section class="card">
+      <h1>Inscription</h1>
+
+      <p class="premium-sub">Contenus exclusifs, confort absolu, sans compromis.</p>
+
+      <form id="signupForm" novalidate>
+        <label>Nom d'utilisateur
+          <input type="text" name="name" required>
+        </label>
+
+        <label>Email
+          <input type="email" name="email" required>
+        </label>
+
+        <label>Mot de passe
+          <input type="password" name="password" required>
+        </label>
+
+        <label>Confirmer le mot de passe
+          <input type="password" name="confirm" required>
+        </label>
+
+        <button type="submit">Créer le compte</button>
+
+        <p class="muted">Déjà inscrit(e) ?
+          <a href="./login.html">Se connecter</a>
+        </p>
+
+        <p id="signupMsg" class="msg" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+<script src="../js/signup.js"></script>
+<!--<script src="../js/stars.js"></script>-->
+  
+</body>
+</html>

@@ -1,0 +1,232 @@
+/* Fond image spécifique à la page de connexion */
+.auth .bg{
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(125, 55, 255, 0.25), rgba(0,0,0,.55)),
+    url("../photo/télécharger\ \(2\).jpeg") center/cover no-repeat;
+  z-index: 0;
+  filter: saturate(1.05);
+}
+
+/* Ajuste le cadrage si besoin */
+/* .auth .bg{ background-position: 50% 30%; } */
+/* Place la carte vers la gauche */
+.auth{
+  /* déjà présent :
+  position: relative;
+  min-height: 100dvh;
+  display: grid;
+  overflow: hidden;
+  */
+  align-items: center;       /* vertical : centré */
+  justify-items: start;      /* horizontal : aligné à gauche */
+  padding-left: clamp(16px, 6vw, 140px); /* espace depuis le bord gauche */
+}
+
+/* Garde la carte propre */
+.card{
+  justify-self: start;       /* s'aligne bien à gauche dans la grille */
+}
+
+/* Sur mobile : on recentre */
+@media (max-width: 880px){
+  .auth{
+    justify-items: center;
+    padding-left: 0;
+  }
+}
+/* --- Effet d'entrée + hover/lift --- */
+.card{
+  /* override de la base */
+  box-shadow: none;                 /* pas d’ombre au repos */
+  transform: translateY(8px);       /* léger décalage vers le bas */
+  transition: transform .22s ease, box-shadow .25s ease, background .2s ease;
+  animation: fadeUp .5s ease-out both;
+}
+
+/* Ombre et lift quand souris dessus ou quand un input est focus */
+.card:hover,
+.card:focus-within{
+  transform: translateY(0);
+  box-shadow: 0 30px 80px rgba(249, 198, 57, 0.5), 0 0 0 1px rgba(255,255,255,.06) inset;
+}
+
+/* Halo doux autour de la carte au hover/focus */
+.card::after{
+  content:"";
+  position:absolute; inset:-14px;
+  border-radius: 26px;
+  opacity: 0;
+  transition: opacity .25s ease;
+  box-shadow: 0 0 100px 30px rgba(255, 219, 91, 0.18);
+  z-index:-1;
+}
+.card:hover::after,
+.card:focus-within::after{ opacity: 1; }
+
+/* Animation d'entrée */
+@keyframes fadeUp{
+  from{ opacity: 0; transform: translateY(20px); }
+  to  { opacity: 1; transform: translateY(8px); }
+}
+input{
+  transition: border-color .15s ease, box-shadow .2s ease, background .2s ease, transform .1s ease;
+}
+input:focus{
+  background: #0c1322;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(253, 209, 65, 0.18), 0 8px 22px rgba(0,0,0,.35);
+  transform: translateY(-1px);
+}
+.auth .bg{
+  transform: scale(1.04);
+  animation: bgPan 18s ease-in-out infinite alternate;
+}
+@keyframes bgPan{
+  0%   { background-position: 50% 40%; transform: scale(1.04); }
+  100% { background-position: 55% 45%; transform: scale(1.08); }
+}
+/* --- Effet d'entrée + hover/focus comme sur signup --- */
+.card{
+  /* override de la base */
+  box-shadow: none;                 /* pas d’ombre au repos */
+  transform: translateY(8px);       /* léger décalage */
+  transition: transform .22s ease, box-shadow .25s ease, background .2s ease;
+  animation: fadeUp .5s ease-out both;
+}
+
+/* Ombre + lift au survol ou quand un champ est focus dans la carte */
+.card:hover,
+.card:focus-within{
+  transform: translateY(0);
+  box-shadow: 0 30px 80px rgba(255, 248, 51, 0.5), 0 0 0 1px rgba(255,255,255,.06) inset;
+}
+
+/* Halo doux autour de la carte */
+.card::after{
+  content:"";
+  position:absolute; inset:-14px;
+  border-radius: 26px;
+  opacity: 0;
+  transition: opacity .25s ease;
+  box-shadow: 0 0 100px 30px rgba(253, 213, 84, 0.18);
+  z-index:-1;
+}
+.card:hover::after,
+.card:focus-within::after{ opacity: 1; }
+
+/* Animation d'entrée */
+@keyframes fadeUp{
+  from{ opacity: 0; transform: translateY(20px); }
+  to  { opacity: 1; transform: translateY(8px); }
+}
+
+/* (optionnel) mêmes effets de focus sur les inputs et le bouton */
+input{
+  transition: border-color .15s ease, box-shadow .2s ease, background .2s ease, transform .1s ease;
+}
+input:focus{
+  background: #0c1322;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 222, 91, 0.18), 0 8px 22px rgba(0,0,0,.35);
+  transform: translateY(-1px);
+}
+button{
+  transition: transform .12s ease, box-shadow .2s ease, background .2s ease, filter .2s ease;
+}
+button:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(250, 229, 37, 0.28);
+  filter: brightness(1.04);
+}
+button:active{
+  transform: translateY(0);
+  box-shadow: none;
+  filter: brightness(.98);
+}
+
+/* Couleur spécifique au bouton "Se connecter" sur la page login */
+.auth .card button{
+  background: #fcd857;      /* ex. doré premium */
+  border: 1px solid rgba(197, 169, 59, 0.08);
+}
+.auth .card button:hover{
+  background: #f1c256;      /* survol */
+  box-shadow: 0 12px 26px rgba(29, 3, 74, 0.28);
+}
+/* ====== LOGIN — carte “glass” transparente + animations ====== */
+
+/* Fond : tu gardes le tien plus haut, rien à changer ici */
+
+/* Carte : une seule définition (verre + animation + z-index) */
+.auth .card{
+  position: relative;
+  z-index: 2;
+  /* verre dépoli dans ta teinte violette (garde la couleur) */
+  background: rgba(125, 55, 255, 0.18);        /* violet translucide */
+  backdrop-filter: blur(10px) saturate(1.05);
+  -webkit-backdrop-filter: blur(10px) saturate(1.05);
+  border: 1px solid rgba(248, 196, 39, 0.08);
+
+  /* ombre douce + motion */
+  box-shadow: 0 30px 60px rgba(0,0,0,.35);
+  transform: translateY(8px);
+  transition: transform .22s ease, box-shadow .25s ease, background .2s ease, opacity .2s ease;
+  animation: fadeUp .5s ease-out both;
+}
+
+.auth .card:hover,
+.auth .card:focus-within{
+  transform: translateY(0);
+  box-shadow: 0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.06) inset;
+}
+
+/* halo léger */
+.auth .card::after{
+  content:"";
+  position:absolute; inset:-14px;
+  border-radius: 26px;
+  opacity: 0;
+  transition: opacity .25s ease;
+  box-shadow: 0 0 100px 30px rgba(249, 203, 19, 0.18);
+  z-index:-1;
+}
+.auth .card:hover::after,
+.auth .card:focus-within::after{ opacity: 1; }
+
+/* entrée */
+@keyframes fadeUp{
+  from{ opacity: 0; transform: translateY(20px); }
+  to  { opacity: 1; transform: translateY(8px); }
+}
+
+/* Champs : semi-transparents, gardent ta palette */
+.auth .card input{
+  background: rgba(8, 8, 24, 0.55);                 /* champ foncé translucide */
+  border: 1px solid rgba(248, 205, 15, 0.6);       /* ta teinte claire */
+  transition: border-color .15s ease, box-shadow .2s ease, background .2s ease, transform .1s ease;
+}
+.auth .card input:focus{
+  background: rgba(8, 8, 24, 0.65);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(247, 224, 97, 0.18), 0 8px 22px rgba(0,0,0,.35);
+  transform: translateY(-1px);
+}
+
+/* Bouton : on garde TA couleur existante */
+.auth .card button{
+  background: #4f73b7;                         /* ta couleur actuelle */
+  border: 1px solid rgba(255,255,255,.08);
+  transition: transform .12s ease, box-shadow .2s ease, background .2s ease, filter .2s ease;
+}
+.auth .card button:hover{
+  background: #b9b9f4;                          /* survol que tu as choisi */
+  box-shadow: 0 12px 26px rgba(255, 252, 65, 0.28);
+  transform: translateY(-1px);
+}
+.auth .card button:active{
+  transform: translateY(0);
+  box-shadow: none;
+  filter: brightness(.98);
+}

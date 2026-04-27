@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DisneyFilms</title>
+    <link rel="stylesheet" href="../css/Films.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/Films.js" defer></script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="Acceuil.html" id="link-home">Accueil</a>
+    <a href="login.html" id="link-login">Déconnexion</a>
+    <a href="#" id="link-profil" style="margin-left: 20px; font-weight: bold; color: #ffd700; display:none;">
+      Mon profil
+    </a>
+  </nav>
+</header>
+
+<div id="film-container">
+  <template id="template-film">
+    <div class="film-card">
+      <div class="film-content">
+        <img src="{{image}}" loading="lazy" class="film-image">
+        <div class="film-text">
+          <h4>{{film}}</h4>
+          <p class="infos"></p>
+          <h3>Les utilisateurs souhaitant se séparer de ce film :</h3>
+          <div class="users-list"></div>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>
+
+<!-- Bouton possession -->
+<div id="possession-container" style="margin-top: 20px; text-align: center;">
+  <button id="toggle-possession" style="padding: 10px 20px; font-size: 16px;">
+     Je possède ce film
+  </button>
+</div>
+
+<!-- Bouton "vu / envie de voir" -->
+<div id="watch-container" style="margin-top: 10px; text-align: center;">
+  <button id="toggle-watch" style="padding: 10px 20px; font-size: 16px;">
+     Aucun statut
+  </button>
+</div>
+
+
+<script src="../js/stars.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+/* ========== BASE ========== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #22090cea url(../images/fondCinema.jpg) center/cover no-repeat fixed;
+  color: #fff;
+}
+
+/* ========== HEADER ========== */
+header {
+  background: #000;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #FCA616;
+}
+
+header nav a {
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 0 15px;
+  color: #FCA616;
+  transition: 0.3s ease;
+  border-radius: 6px;
+}
+
+header nav a:hover {
+  background: rgba(252, 166, 22, 0.15);
+  color: #fff;
+}
+
+/* ========== TITRES ========== */
+main h1 {
+  color: #fff;
+  margin: 20px 20px 10px;
+}
+
+/* ========== NAV DES UNIVERS (StarWars, Marvel…) ========== */
+nav .Refunivers {
+  display: inline-block;
+  background: #FCA616;
+  color: #000;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin: 4px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+nav .Refunivers:hover {
+  filter: brightness(0.95);
+  transform: translateY(-2px);
+}
+
+/* ========== ARTICLE FILTRES ========== */
+article {
+  background: rgba(252, 187, 22, 0.7);
+  border-radius: 1rem;
+  padding: 12px;
+  margin: 15px 20px;
+}
+
+article h1 {
+  margin-top: 0;
+  color: #14203E;
+  background: #fff;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* liste principale des filtres */
+ul.filtre {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+/* item déroulant */
+ul.filtre > li.deroulant {
+  background: #14203E;
+  border-radius: 8px;
+  position: relative;
+}
+
+ul.filtre > li.deroulant > a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 16px;
+  font-weight: 600;
+}
+
+/* sous-menu */
+ul.filtre li .sous {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #14203E;
+  border-radius: 8px;
+  min-width: 190px;
+  z-index: 20;
+  padding: 6px 0;
+}
+
+ul.filtre li.deroulant:hover .sous {
+  display: block;
+}
+
+ul.filtre li .sous li {
+  padding: 0;
+}
+
+ul.filtre li .sous a,
+ul.filtre li .sous label {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  transition: 0.2s;
+}
+
+ul.filtre li .sous a:hover,
+ul.filtre li .sous label:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* inputs dans le menu */
+ul.filtre li .sous input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+/* ========== GRILLE DES UNIVERS ========== */
+.grid-container {
+  display: grid;
+  gap: 15px;
+  padding: 20px;
+}
+
+.univers-card {
+  background: #FCA616;
+  border-radius: 1rem;
+  padding: 12px;
+  color: #000;
+}
+
+.univers-card h2 {
+  text-align: center;
+  margin: 0 0 10px;
+  background: #14203E;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+/* ========== SAGAS ========== */
+.saga-card {
+  background: #939597;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 8px;
+}
+
+.saga-card h3 {
+  margin: 0 0 6px;
+  background: #14203E;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* ========== FILMS DANS UNE SAGA ========== */
+.grid-films {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.film-card {
+  background: #FCA616;
+  border-radius: 12px;
+  padding: 8px;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.film-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.25);
+}
+
+.film-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.film-card h4 {
+  margin: 0.3em 0;
+  font-size: 1em;
+  font-weight: 700;
+  color: #000;
+}
+
+.film-card p {
+  margin: 0;
+  font-size: 0.85em;
+  background: none;
+  padding: 0;
+  color: #222;
+}
+
+.film-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 6px;
+}
+
+/* ========== LIENS GLOBAUX ========== */
+a#filtre {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* pour éviter que TOUS les <p> aient un background gris */
+main p {
+  background: none;
+}
+
+/* responsive rapide */
+@media (max-width: 700px) {
+  header {
+    text-align: left;
+  }
+  header nav a {
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  ul.filtre {
+    flex-direction: column;
+  }
+}
